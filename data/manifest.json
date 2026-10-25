@@ -1,0 +1,26 @@
+[
+  {
+    "name": "fr_pccp_final_notice_2024.html",
+    "url": "https://www.govinfo.gov/content/pkg/FR-2024-12-04/html/2024-28361.htm",
+    "bytes": 18202,
+    "sha256": "ef6309dcb14d72748f12f719a61ad72a95d7b94b7dc74cca0cdb26a078bbc4f2",
+    "recorded_at": "2026-10-25T23:32:21.175139+00:00",
+    "acquired": "script"
+  },
+  {
+    "name": "fr_ai_lifecycle_draft_notice_2025.pdf",
+    "url": "https://www.govinfo.gov/content/pkg/FR-2025-01-07/pdf/2024-31543.pdf",
+    "bytes": 224403,
+    "sha256": "10d9160931ca95185fe9de1f4897e531f63fd56b7f3c2773ca2b646089573464",
+    "recorded_at": "2026-10-25T23:32:21.450049+00:00",
+    "acquired": "script"
+  },
+  {
+    "name": "fda_ai_lifecycle_draft_2025.pdf",
+    "url": "https://www.fda.gov/media/184856/download",
+    "bytes": 1590866,
+    "sha256": "62e83e0f4cbd36aed96f2f98ced597f3146f25ae66abba9849325e4e4b7520bc",
+    "recorded_at": "2026-10-25T23:32:21.452497+00:00",
+    "acquired": "manual"
+  }
+]
