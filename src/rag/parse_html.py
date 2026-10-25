@@ -8,6 +8,7 @@ DASH = re.compile(r"^\s*-{20,}\s*$")
 PAGE_MARK = re.compile(r"^\s*\[\[Page (\d+)\]\]\s*$")
 FOOTNOTE_OPEN = re.compile(r"^\s*\\\d+\\")   # footnote regions start with a \1\ style marker
 FOOTNOTE_STRIP = re.compile(r"^\s*\\\d+\\\s*")
+INLINE_MARK = re.compile(r"\s*\\\d+\\")   # inline footnote call-outs in body text
 HEADING = re.compile(r"^[IVX]+\.\s+\S.{0,80}$")
 BOILERPLATE = re.compile(r"^\s*(BILLING CODE|\[FR Doc\. .*Filed)")
 
@@ -71,7 +72,7 @@ def parse_html(path):
             continue                                              # separators and table borders: dropped
         if BOILERPLATE.match(raw):
             continue
-        line = clean(FOOTNOTE_STRIP.sub("", raw) if in_note else raw)
+        line = clean(FOOTNOTE_STRIP.sub("", raw) if in_note else INLINE_MARK.sub("", raw))
         pages[page]["notes" if in_note else "body"].append(line)
     if in_note:
         raise ValueError(f"{path.name}: unclosed footnote region")
