@@ -21,6 +21,7 @@ class Profile:
     footnote_max_size: float = 10.5   # small text in lower half -> footnotes (0 = off)
     heading_min_size: float = 14.0    # 0 = no heading detection
     page_no_in_header: bool = False   # printed page number lives in the header
+    start_marker: str = ""            # drop first-page text before this marker
 
 
 FDA_GUIDANCE = Profile("fda_guidance")
@@ -28,7 +29,8 @@ TRANSCRIPT = Profile("transcript", line_numbers=False, marker_max_size=0,
                      footnote_max_size=0, heading_min_size=0)
 FR_NOTICE = Profile("fr_notice", header_max_y=50.0, columns=3, left=45.0, right=567.0,
                     line_numbers=False, marker_max_size=0, footnote_max_size=0,
-                    heading_min_size=0, page_no_in_header=True)
+                    heading_min_size=0, page_no_in_header=True,
+                    start_marker="DEPARTMENT OF HEALTH AND HUMAN SERVICES")
 
 
 def profile_for(path) -> Profile:
@@ -68,7 +70,16 @@ def parse_page(page, prof: Profile):
                 kept.append(s)
             if not kept:
                 continue
-            text = "".join(s["text"] for s in kept).strip()
+            parts, prev = [], None
+            for s in kept:
+                t = s["text"]
+                if (prev is not None and not prev["text"].endswith(" ")
+                        and not t.startswith(" ")
+                        and s["bbox"][0] - prev["bbox"][2] > 1.0):
+                    parts.append(" ")     # visible gap between spans -> word break
+                parts.append(t)
+                prev = s
+            text = "".join(parts).strip()
             y0 = min(s["bbox"][1] for s in kept)
             x0 = min(s["bbox"][0] for s in kept)
             size = max(s["size"] for s in kept)
@@ -119,4 +130,7 @@ def parse_pdf(path, prof: Profile = None):
                 "text": assemble(body, prof),
                 "footnotes": assemble(notes, prof),
             })
+    if prof.start_marker and pages and prof.start_marker in pages[0]["text"]:
+        t = pages[0]["text"]
+        pages[0]["text"] = t[t.index(prof.start_marker):]
     return pages
