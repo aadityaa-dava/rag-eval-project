@@ -17,12 +17,28 @@ SOURCES = [
      "url": "https://www.govinfo.gov/content/pkg/FR-2024-12-04/html/2024-28361.htm"},
     {"name": "fr_ai_lifecycle_draft_notice_2025.pdf",
      "url": "https://www.govinfo.gov/content/pkg/FR-2025-01-07/pdf/2024-31543.pdf"},
+    {"name": "fr_cybersecurity_notice_2023.html",
+     "url": "https://www.govinfo.gov/content/pkg/FR-2023-09-27/html/2023-20955.htm"},
+    {"name": "fr_cybersecurity_notice_2025.html",
+     "url": "https://www.govinfo.gov/content/pkg/FR-2025-06-27/html/2025-11669.htm"},
+    {"name": "fr_human_factors_notice_2016.html",
+     "url": "https://www.govinfo.gov/content/pkg/FR-2016-02-03/html/2016-01887.htm"},
 ]
 
 # Downloaded by hand in a browser (the host blocks scripts); must already be in data/raw
 MANUAL = [
     {"name": "fda_ai_lifecycle_draft_2025.pdf",
      "url": "https://www.fda.gov/media/184856/download"},
+    {"name": "fda_premarket_software_content_2023.pdf",
+     "url": "https://www.fda.gov/media/153781/download"},
+    {"name": "fda_human_factors_2016.pdf",
+     "url": "https://fda.gov/media/80481/download"},
+    {"name": "fda_cybersecurity_premarket_2026.pdf",
+     "url": "https://www.fda.gov/media/119933/download"},
+    {"name": "fda_pccp_webinar_transcript_2025.pdf",
+     "url": "https://www.fda.gov/media/187905/download"},
+    {"name": "fda_cybersecurity_webinar_transcript_2023.pdf",
+     "url": "https://fda.gov/media/173984/download"},
 ]
 
 

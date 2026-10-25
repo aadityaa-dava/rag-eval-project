@@ -3,8 +3,8 @@
     "name": "fr_pccp_final_notice_2024.html",
     "url": "https://www.govinfo.gov/content/pkg/FR-2024-12-04/html/2024-28361.htm",
     "bytes": 18202,
-    "sha256": "ef6309dcb14d72748f12f719a61ad72a95d7b94b7dc74cca0cdb26a078bbc4f2",
-    "recorded_at": "2026-10-25T23:32:21.175139+00:00",
+    "sha256": "723db3daa27fde2a743b6b1c6648113d967a1b904c77b6198bf919a1c826c1de",
+    "recorded_at": "2026-10-25T23:36:33.184503+00:00",
     "acquired": "script"
   },
   {
@@ -12,7 +12,31 @@
     "url": "https://www.govinfo.gov/content/pkg/FR-2025-01-07/pdf/2024-31543.pdf",
     "bytes": 224403,
     "sha256": "10d9160931ca95185fe9de1f4897e531f63fd56b7f3c2773ca2b646089573464",
-    "recorded_at": "2026-10-25T23:32:21.450049+00:00",
+    "recorded_at": "2026-10-25T23:36:33.441269+00:00",
+    "acquired": "script"
+  },
+  {
+    "name": "fr_cybersecurity_notice_2023.html",
+    "url": "https://www.govinfo.gov/content/pkg/FR-2023-09-27/html/2023-20955.htm",
+    "bytes": 15625,
+    "sha256": "577612a8018a096c267bbfd99b01c9e3fdc92f8c4fca6ab26988debb127eefea",
+    "recorded_at": "2026-10-25T23:36:33.599002+00:00",
+    "acquired": "script"
+  },
+  {
+    "name": "fr_cybersecurity_notice_2025.html",
+    "url": "https://www.govinfo.gov/content/pkg/FR-2025-06-27/html/2025-11669.htm",
+    "bytes": 14925,
+    "sha256": "b848b33f9f612b819b688a595584a32cf4fe8413337ef64520846887622ed681",
+    "recorded_at": "2026-10-25T23:36:33.768877+00:00",
+    "acquired": "script"
+  },
+  {
+    "name": "fr_human_factors_notice_2016.html",
+    "url": "https://www.govinfo.gov/content/pkg/FR-2016-02-03/html/2016-01887.htm",
+    "bytes": 12402,
+    "sha256": "d56fd9aeec8cb35792d4e162647312d0638318fd7d4cb8817bcadf57a9770ff1",
+    "recorded_at": "2026-10-25T23:36:33.917666+00:00",
     "acquired": "script"
   },
   {
@@ -20,7 +44,39 @@
     "url": "https://www.fda.gov/media/184856/download",
     "bytes": 1590866,
     "sha256": "62e83e0f4cbd36aed96f2f98ced597f3146f25ae66abba9849325e4e4b7520bc",
-    "recorded_at": "2026-10-25T23:32:21.452497+00:00",
+    "recorded_at": "2026-10-25T23:36:33.920209+00:00",
+    "acquired": "manual"
+  },
+  {
+    "name": "fda_premarket_software_content_2023.pdf",
+    "url": "https://www.fda.gov/media/153781/download",
+    "bytes": 1542867,
+    "sha256": "dee0c15e11499682ca281120a9828180ec16710eea3d9e272cee5807050a704a",
+    "recorded_at": "2026-10-25T23:36:33.922361+00:00",
+    "acquired": "manual"
+  },
+  {
+    "name": "fda_human_factors_2016.pdf",
+    "url": "https://fda.gov/media/80481/download",
+    "bytes": 1471881,
+    "sha256": "9b49b108f88e04eaa63143f9ace07b0fef878e40353b198581dfb603c24e1b20",
+    "recorded_at": "2026-10-25T23:36:33.924224+00:00",
+    "acquired": "manual"
+  },
+  {
+    "name": "fda_cybersecurity_premarket_2026.pdf",
+    "url": "https://www.fda.gov/media/119933/download",
+    "bytes": 1195625,
+    "sha256": "d046fa836048933e1a8795bcf2f8224bcfa08789c2f3ef6f46ae53c2eb096c54",
+    "recorded_at": "2026-10-25T23:36:33.925786+00:00",
+    "acquired": "manual"
+  },
+  {
+    "name": "fda_cybersecurity_webinar_transcript_2023.pdf",
+    "url": "https://fda.gov/media/173984/download",
+    "bytes": 404078,
+    "sha256": "f72d920a8858ed9f02da3fc037fd4cf2f6a0793b2950766d934542d6f23eb29a",
+    "recorded_at": "2026-10-25T23:36:33.926529+00:00",
     "acquired": "manual"
   }
 ]
