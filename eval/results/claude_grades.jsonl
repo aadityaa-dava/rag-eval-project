@@ -1,0 +1,15 @@
+{"qid":"q042","condition":"B","correct":"correct","faithful":"most"}
+{"qid":"q048","condition":"A","correct":"partial","faithful":"all"}
+{"qid":"q022","condition":"A","correct":"correct","faithful":"all"}
+{"qid":"q039","condition":"B","correct":"correct","faithful":"all"}
+{"qid":"q048","condition":"B","correct":"partial","faithful":"most"}
+{"qid":"q005","condition":"B","correct":"correct","faithful":"all"}
+{"qid":"q037","condition":"B","correct":"correct","faithful":"all"}
+{"qid":"q013","condition":"B","correct":"correct","faithful":"all"}
+{"qid":"h010","condition":"A","correct":"partial","faithful":"all"}
+{"qid":"h012","condition":"B","correct":"correct","faithful":"all"}
+{"qid":"q041","condition":"A","correct":"partial","faithful":"most"}
+{"qid":"h012","condition":"A","correct":"incorrect","faithful":"some"}
+{"qid":"q013","condition":"A","correct":"correct","faithful":"all"}
+{"qid":"q054","condition":"B","correct":"correct","faithful":"all"}
+{"qid":"q045","condition":"B","correct":"partial","faithful":"most"}
