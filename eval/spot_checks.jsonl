@@ -1,0 +1,10 @@
+{"qid": "q023", "ok": true, "note": ""}
+{"qid": "q011", "ok": true, "note": ""}
+{"qid": "q031", "ok": true, "note": ""}
+{"qid": "q005", "ok": true, "note": ""}
+{"qid": "q006", "ok": true, "note": ""}
+{"qid": "q041", "ok": true, "note": ""}
+{"qid": "q008", "ok": false, "note": "circular question, ambiguous across docs"}
+{"qid": "q028", "ok": true, "note": ""}
+{"qid": "q048", "ok": false, "note": "\"of the guidance\" is inferred"}
+{"qid": "q039", "ok": true, "note": ""}
