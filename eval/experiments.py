@@ -16,7 +16,6 @@ EVAL, OUT = Path("eval/eval_set.jsonl"), Path("eval/results/experiments.jsonl")
 def evaluate_config(size, overlap, model_name="BAAI/bge-small-en-v1.5"):
     """Runs in a FRESH process: reopen the persisted index, score with Chroma and with exact search."""
     import numpy as np
-    ix.MODEL_NAME = model_name
     chunks_path = f"data/processed/chunks_{size}_{overlap}.jsonl"
     col = ix.get_client().get_collection(ix.collection_name(chunks_path, model_name))
     model = ix.load_model(model_name)
@@ -25,11 +24,12 @@ def evaluate_config(size, overlap, model_name="BAAI/bge-small-en-v1.5"):
     qs = [q for q in (json.loads(l) for l in EVAL.open()) if q["kind"] != "unanswerable"]
     per_q = {"chroma": [], "exact": []}
     for q in qs:
-        per_q["chroma"].append(score(q, ix.search(model, col, q["question"], k=10)))
-        qv = ix.embed_query(model, q["question"])
+        per_q["chroma"].append(score(q, ix.search(model, col, q["question"], k=10, model_name=model_name)))
+        qv = ix.embed_query(model, q["question"], model_name)
         order = np.argsort(-(E @ qv))[:10]
         per_q["exact"].append(score(q, [{**metas[i], "id": ids[i]} for i in order]))
-    row = {"size": size, "overlap": overlap, "model": model_name, "n_chunks": col.count()}
+    assert E.shape[1] == model.get_sentence_embedding_dimension(), (E.shape, model.get_sentence_embedding_dimension())
+    row = {"size": size, "overlap": overlap, "model": model_name, "n_chunks": col.count(), "dim": int(E.shape[1])}
     for mode, res in per_q.items():
         for m in ("hit@1", "hit@5", "hit@10", "mrr"):
             v = [r[m] for r in res]
@@ -44,11 +44,10 @@ def evaluate_config(size, overlap, model_name="BAAI/bge-small-en-v1.5"):
 
 def build_config(size, overlap, model_name="BAAI/bge-small-en-v1.5"):
     """Runs in its own process: chunk + embed + persist. Never queries."""
-    ix.MODEL_NAME = model_name
     chunks_path = Path(f"data/processed/chunks_{size}_{overlap}.jsonl")
     if not chunks_path.exists():
         chunker.main(size, overlap)
-    ix.build(str(chunks_path))
+    ix.build(str(chunks_path), model_name)
 
 
 if __name__ == "__main__":

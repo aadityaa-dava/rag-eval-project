@@ -24,8 +24,8 @@ def embed_passages(model, texts):
     return model.encode(texts, batch_size=32, normalize_embeddings=True, show_progress_bar=True)
 
 
-def embed_query(model, query):
-    prefix = QUERY_PREFIX if "bge" in MODEL_NAME.lower() else ""
+def embed_query(model, query, model_name=MODEL_NAME):
+    prefix = QUERY_PREFIX if "bge" in model_name.lower() else ""
     return model.encode(prefix + query, normalize_embeddings=True)
 
 
@@ -37,15 +37,15 @@ def collection_name(chunks_path, model_name=MODEL_NAME):
     return f"{Path(chunks_path).stem}__{model_name.split('/')[-1]}"
 
 
-def build(chunks_path):
+def build(chunks_path, model_name=MODEL_NAME):
     chunks = [json.loads(l) for l in open(chunks_path)]
-    model = load_model()
+    model = load_model(model_name)
     t0 = time.time()
     vectors = embed_passages(model, [c["text"] for c in chunks])
     print(f"embedded {len(chunks)} chunks in {time.time() - t0:.1f}s, dim={vectors.shape[1]}")
 
     client = get_client()
-    name = collection_name(chunks_path)
+    name = collection_name(chunks_path, model_name)
     try:
         client.delete_collection(name)           # rebuild from scratch each run
     except Exception:
@@ -64,11 +64,12 @@ def build(chunks_path):
     return name
 
 
-def search(model, col, query, k=5):
-    res = col.query(query_embeddings=[embed_query(model, query).tolist()], n_results=k)
+def search(model, col, query, k=5, model_name=MODEL_NAME):
+    res = col.query(query_embeddings=[embed_query(model, query, model_name).tolist()], n_results=k)
     return [{"id": i, "distance": d, "text": t, **m}
             for i, d, t, m in zip(res["ids"][0], res["distances"][0], res["documents"][0], res["metadatas"][0])]
 
 
 if __name__ == "__main__":
-    build(sys.argv[1] if len(sys.argv) > 1 else "data/processed/chunks_1000_150.jsonl")
+    build(sys.argv[1] if len(sys.argv) > 1 else "data/processed/chunks_1000_150.jsonl",
+          sys.argv[2] if len(sys.argv) > 2 else MODEL_NAME)
