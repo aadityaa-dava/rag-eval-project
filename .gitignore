@@ -9,3 +9,4 @@ chroma_db/
 *.egg-info/
 .pytest_cache/
 data/processed/chunks_*.jsonl
+logs/
