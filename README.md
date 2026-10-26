@@ -20,6 +20,20 @@ What did **not** help, tested and reported below: chunk size and overlap, larger
 
 Read the limits section before quoting any number: 49 questions, written from the same corpus, so intervals are wide.
 
+## Screenshots
+
+A cited answer: the supporting sentence is visible in the expanded source.
+
+![Cited answer](docs/screenshots/1_cited_answer.png)
+
+A refusal on a question the documents do not cover (a 510(k) user fee).
+
+![Refusal](docs/screenshots/2_refusal.png)
+
+A known failure. The system states that the most recent premarket cybersecurity guidance was issued on September 27, 2023, but the corpus contains versions from June 2025 and February 2026 that supersede it. The cited source is the 2025 Federal Register notice, whose own text says it updates the 2023 version.
+
+![Version failure](docs/screenshots/3_version_failure.png)
+
 ## Corpus
 
 10 documents, 258 pages, 995 chunks (US federal government publications):
