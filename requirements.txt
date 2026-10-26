@@ -2,6 +2,7 @@ aiohappyeyeballs==2.7.1
 aiohttp==3.14.5
 aiohttp-retry==2.9.1
 aiosignal==1.4.0
+altair==6.3.0
 annotated-doc==0.0.5
 annotated-types==0.8.0
 anyio==4.15.1
@@ -53,6 +54,7 @@ ipython==9.17.1
 ipython_pygments_lexers==1.1.1
 ipywidgets==8.1.9
 isoduration==20.11.0
+itsdangerous==2.2.0
 jedi==0.20.1
 Jinja2==3.1.6
 joblib==1.6.0
@@ -105,9 +107,11 @@ opentelemetry-semantic-conventions==0.66b1
 orjson==3.13.0
 overrides==7.7.0
 packaging==26.3
+pandas==3.1.0
 pandocfilters==1.5.1
 parso==0.8.7
 pexpect==4.9.0
+pillow==13.0.0
 platformdirs==4.13.5
 pluggy==1.7.0
 prometheus_client==0.26.0
@@ -117,11 +121,13 @@ protobuf==7.36.2
 psutil==7.2.2
 ptyprocess==0.7.0
 pure_eval==0.2.4
+pyarrow==26.0.0
 pybase64==1.5.1
 pycparser==3.12
 pydantic==2.14.1
 pydantic-settings==2.16.1
 pydantic_core==2.50.1
+pydeck==0.9.3
 Pygments==2.21.0
 pymupdf==2.0
 pymupdf4llm==2.0
@@ -132,6 +138,7 @@ pytest==9.1.1
 python-dateutil==3.0.0
 python-dotenv==1.2.4
 python-json-logger==4.2.0
+python-multipart==0.0.32
 PyYAML==6.0.3
 pyzmq==27.2.0
 rank-bm25==0.2.2
@@ -154,6 +161,7 @@ six==1.17.0
 soupsieve==3.0.4
 stack-data==0.6.3
 starlette==1.10.0
+streamlit==1.66.1
 sympy==1.14.0
 tabulate==0.10.0
 tenacity==9.2.1
