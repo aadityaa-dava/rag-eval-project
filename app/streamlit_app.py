@@ -5,6 +5,19 @@ import requests
 import streamlit as st
 
 API = os.environ.get("RAG_API", "http://localhost:8000")
+
+import re
+
+PUA = re.compile("[\ue000-\uf8ff]")          # private-use bullet glyphs left over from PDF extraction
+
+
+def tidy(t):
+    return PUA.sub("\u2022", t)
+
+
+def soft(t):
+    return tidy(t).replace("\n", "  \n")      # keep the model's line breaks in markdown
+
 EXAMPLES = [
     "What should a performance monitoring plan include?",
     "What is data drift?",
@@ -52,7 +65,7 @@ if question and len(question.strip()) >= 3:
         if data["refused"]:
             st.warning(data["answer"])
         else:
-            st.markdown(data["answer"])
+            st.markdown(soft(data["answer"]))
         if data["truncated"]:
             st.info("This answer hit the length limit and may be cut off.")
         t, tok = data["timing"], data["tokens"]
@@ -67,4 +80,4 @@ if question and len(question.strip()) >= 3:
     for s in results:
         mark = "CITED  " if s.get("cited") else ""
         with st.expander(f"[{s['n']}] {mark}{s['doc']}, {s['pages']} | {s['section']}", expanded=bool(s.get("cited"))):
-            st.write(s.get("text", s["snippet"]))
+            st.markdown(soft(s.get("text", s["snippet"])))
