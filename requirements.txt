@@ -130,6 +130,7 @@ python-dotenv==1.2.4
 python-json-logger==4.2.0
 PyYAML==6.0.3
 pyzmq==27.2.0
+rank-bm25==0.2.2
 referencing==0.37.0
 regex==2026.9.29
 requests==2.34.2
