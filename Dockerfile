@@ -7,6 +7,6 @@ RUN pip install --no-cache-dir -r requirements-docker.txt
 COPY src ./src
 COPY api ./api
 COPY data/processed ./data/processed
-RUN python -m rag.index data/processed/chunks_1000_150.jsonl
+RUN python -m rag.chunk 1000 150 > /dev/null && python -m rag.index data/processed/chunks_1000_150.jsonl
 EXPOSE 8000
 CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
