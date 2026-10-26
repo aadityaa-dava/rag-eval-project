@@ -112,6 +112,7 @@ Judge: `qwen2.5:7b` (a different model family from the generator), correctness o
 - **Spot-check:** 10 sampled labels, 8 fine and 2 needing fixes (a circular question and an inferred phrase). A systematic pass then revised 14 questions and rejected 1. The author's spot-check was not independent: the reviewer's verdicts had been shown first.
 - **Judge calibration** (13 of 15 correctness verdicts matched) was against grades I wrote, not a human's, and the judge is lenient on completeness, so the gap between dense and hybrid answers is probably understated.
 - **The unanswerable set is small and author-written.** 16 refusals out of 16 is not evidence of robust hallucination handling.
+- **Known parsing defect:** the PDFs' square bullet glyphs are extracted as private-use Unicode characters that no font renders. They are present in 22 of 995 chunks (13 of 258 pages) and show up as empty boxes in answers and sources. The app replaces them with a bullet for display, but the index and the reported metrics were built on the uncleaned text, so their effect on retrieval was not measured.
 - **An unexplained reproducibility issue:** building an index and querying it in the same process gave slightly different retrieval for one question than reopening it later (query vectors were bit-identical, and exact search matched Chroma after reopening). The cause is unknown; the experiment harness builds and evaluates in separate processes.
 
 ## Cost and latency
