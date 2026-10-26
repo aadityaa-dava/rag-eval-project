@@ -128,7 +128,7 @@ Needs Python 3.11 and [Ollama](https://ollama.com) with `llama3.1:8b` pulled.
     streamlit run app/streamlit_app.py
     python -m pytest -q                  # 8 stubbed tests, no models needed
 
-Docker: `docker build -t rag-eval:0.1 .` then `docker run -p 8000:8000 rag-eval:0.1`. The container serves the API and reaches Ollama on the host (`OLLAMA_URL`); it does not bundle a language model.
+Docker: `docker build -t rag-eval:0.2 .` then `docker run -p 8000:8000 rag-eval:0.2`. The container serves the API and reaches Ollama on the host (`OLLAMA_URL`); it does not bundle a language model.
 
 ## Next steps
 
