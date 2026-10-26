@@ -9,6 +9,14 @@ import pymupdf
 BULLET = re.compile(r"^([•▪\uf000-\uf8ff]|o\s)")
 
 
+PUA = re.compile("[\ue000-\uf8ff]")
+
+
+def clean_glyphs(text):
+    """Symbol-font bullets (Wingdings/Symbol) are extracted as private-use characters that no normal font draws."""
+    return PUA.sub("\u2022", text)
+
+
 @dataclass(frozen=True)
 class Profile:
     name: str
@@ -79,7 +87,7 @@ def parse_page(page, prof: Profile):
                     parts.append(" ")     # visible gap between spans -> word break
                 parts.append(t)
                 prev = s
-            text = "".join(parts).strip()
+            text = clean_glyphs("".join(parts)).strip()
             y0 = min(s["bbox"][1] for s in kept)
             x0 = min(s["bbox"][0] for s in kept)
             size = max(s["size"] for s in kept)
