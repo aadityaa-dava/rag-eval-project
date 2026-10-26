@@ -25,7 +25,8 @@ def embed_passages(model, texts):
 
 
 def embed_query(model, query):
-    return model.encode(QUERY_PREFIX + query, normalize_embeddings=True)
+    prefix = QUERY_PREFIX if "bge" in MODEL_NAME.lower() else ""
+    return model.encode(prefix + query, normalize_embeddings=True)
 
 
 def get_client():
