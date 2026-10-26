@@ -37,6 +37,7 @@ def test_health(client):
 def test_search_returns_k_results_with_pages(client):
     r = client.post("/search", json={"question": "what is a pccp", "k": 3}).json()
     assert len(r["results"]) == 3 and r["results"][0]["pages"] == "p.1"
+    assert r["results"][0]["text"] == "passage 1 text"
 
 
 def test_ask_marks_only_cited_sources(client, monkeypatch):

@@ -67,4 +67,4 @@ if question and len(question.strip()) >= 3:
     for s in results:
         mark = "CITED  " if s.get("cited") else ""
         with st.expander(f"[{s['n']}] {mark}{s['doc']}, {s['pages']} | {s['section']}", expanded=bool(s.get("cited"))):
-            st.write(s["snippet"] + (" ..." if len(s["snippet"]) >= 300 else ""))
+            st.write(s.get("text", s["snippet"]))

@@ -32,7 +32,7 @@ class Query(BaseModel):
 
 def source_view(n, h, cited):
     return {"n": n, "chunk_id": h["chunk_id"], "doc": h["doc"], "pages": page_label(h),
-            "section": h["section"], "cited": n in cited, "snippet": h["text"][:300]}
+            "section": h["section"], "cited": n in cited, "text": h["text"], "snippet": h["text"][:300]}
 
 
 def log_request(rec):
