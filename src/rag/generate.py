@@ -5,7 +5,9 @@ import requests
 
 from rag.index import collection_name, get_client, load_model, search
 
-OLLAMA_URL = "http://localhost:11434/api/chat"
+import os
+
+OLLAMA_URL = os.environ.get("OLLAMA_URL", "http://localhost:11434/api/chat")
 GEN_MODEL = "llama3.1:8b"
 CHUNKS = "data/processed/chunks_1000_150.jsonl"
 IDK = "I don't know based on the provided documents."

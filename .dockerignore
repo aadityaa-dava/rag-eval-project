@@ -1,0 +1,9 @@
+.venv
+chroma_db
+data/raw
+logs
+eval
+notebooks
+tests
+.git
+__pycache__
